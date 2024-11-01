@@ -28,28 +28,38 @@ export const Dashboard: React.FC = () => {
     const fetchDashboardData = async () => {
       try {
         const [tracksData, eventsData, merchandiseData] = await Promise.all([
-          tracks.getAll(),
-          events.getAll(),
-          merchandise.getAll(),
+          tracks.getAll().catch(() => []),
+          events.getAll().catch(() => []),
+          merchandise.getAll().catch(() => []),
         ]);
 
+        console.log("events data logging...", eventsData.events);
+
         setStats({
-          tracks: tracksData.length,
-          events: eventsData.length,
-          products: merchandiseData.length,
-          sales: merchandiseData.reduce(
-            (acc: number, item: Merchandise) =>
-              acc + item.price * (item.stockCount || 0),
-            0
-          ),
+          tracks: tracksData?.length || 0,
+          events: eventsData?.events?.length || 0,
+          products: merchandiseData?.length || 0,
+          sales:
+            merchandiseData?.reduce(
+              (acc: number, item: Merchandise) =>
+                acc + (item.price || 0) * (item.stockCount || 0),
+              0
+            ) || 0,
         });
 
-        setRecentTracks(tracksData.slice(0, 5));
+        setRecentTracks(tracksData?.slice(0, 5) || []);
         setUpcomingEvents(
-          eventsData.filter((e) => e.status === "upcoming").slice(0, 5)
+          (
+            eventsData?.events.filter((e) => e.status === "upcoming") || []
+          ).slice(0, 5)
         );
       } catch (error) {
-        toast.error("Error loading dashboard data");
+        console.error("Dashboard data loading error:", error);
+        toast.error(
+          error instanceof Error
+            ? error.message
+            : "Error loading dashboard data"
+        );
       } finally {
         setLoading(false);
       }

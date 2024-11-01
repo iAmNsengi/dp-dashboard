@@ -56,6 +56,8 @@ export const tracks = {
 export const events = {
   getAll: async () => {
     const response = await api.get("/events");
+    console.log("from events testing...", response);
+
     return response.data;
   },
 
