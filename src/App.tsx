@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./contexts/AuthContext";
 import { ProtectedRoute } from "./auth/ProtectedRoute";
-// import { Login } from "./pages/auth/Login";
+import { Login } from "./auth/Login";
 import { Dashboard } from "./pages/Dashboard";
 // import { Tracks } from "./pages/tracks";
 // import { Merchandise } from "./pages/merchandise";
@@ -21,10 +21,10 @@ function App() {
           {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/tracks/*" element={<Tracks />} />
-            <Route path="/merchandise/*" element={<Merchandise />} />
-            <Route path="/events/*" element={<Events />} />
-            <Route path="/profile" element={<Profile />} />
+            {/* <Route path="/tracks/*" element={<Tracks />} /> */}
+            {/* <Route path="/merchandise/*" element={<Merchandise />} /> */}
+            {/* <Route path="/events/*" element={<Events />} /> */}
+            {/* <Route path="/profile" element={<Profile />} /> */}
           </Route>
 
           {/* Catch all route */}
