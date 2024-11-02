@@ -50,7 +50,8 @@ export const Dashboard: React.FC = () => {
         setRecentTracks(tracksData?.slice(0, 5) || []);
         setUpcomingEvents(
           (
-            eventsData?.events.filter((e) => e.status === "upcoming") || []
+            eventsData?.events.filter((e: Event) => e.status === "upcoming") ||
+            []
           ).slice(0, 5)
         );
       } catch (error) {
