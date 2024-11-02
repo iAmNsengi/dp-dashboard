@@ -5,8 +5,8 @@ import { ProtectedRoute } from "./auth/ProtectedRoute";
 import { Login } from "./auth/Login";
 import { Dashboard } from "./pages/Dashboard";
 import { Events } from "./pages/events";
+import { Merchandise } from "./pages/merchandise";
 // import { Tracks } from "./pages/tracks";
-// import { Merchandise } from "./pages/merchandise";
 // import { Profile } from "./pages/Profile";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Dashboard />} />
             {/* <Route path="/tracks/*" element={<Tracks />} /> */}
-            {/* <Route path="/merchandise/*" element={<Merchandise />} /> */}
+            <Route path="/merchandise/*" element={<Merchandise />} />
             <Route path="/events/*" element={<Events />} />
             {/* <Route path="/profile" element={<Profile />} /> */}
           </Route>
