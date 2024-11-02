@@ -5,6 +5,7 @@ import { EventForm } from "../../components/events/EventForm";
 import { events } from "../../services/api";
 import { Event } from "../../types";
 import toast from "react-hot-toast";
+import Loading from "../../components/common/Loading";
 
 export const EditEvent: React.FC = () => {
   const [event, setEvent] = useState<Event | null>(null);
@@ -46,13 +47,7 @@ export const EditEvent: React.FC = () => {
     }
   };
 
-  if (initialLoading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-900"></div>
-      </div>
-    );
-  }
+  if (initialLoading) return <Loading />;
 
   return (
     <div className="space-y-6">

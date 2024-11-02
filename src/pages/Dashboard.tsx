@@ -12,6 +12,7 @@ import {
 import { Track, Event, Merchandise } from "../types";
 import { tracks, events, merchandise } from "../services/api";
 import toast from "react-hot-toast";
+import Loading from "../components/common/Loading";
 
 export const Dashboard: React.FC = () => {
   const [stats, setStats] = useState({
@@ -69,13 +70,7 @@ export const Dashboard: React.FC = () => {
     fetchDashboardData();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="h-full flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-900"></div>
-      </div>
-    );
-  }
+  if (loading) return <Loading />;
 
   return (
     <div className="space-y-6">

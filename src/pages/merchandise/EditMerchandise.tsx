@@ -5,6 +5,7 @@ import { MerchandiseForm } from "../../components/merchandise/MerchandiseForm";
 import { merchandise } from "../../services/api";
 import { Merchandise } from "../../types";
 import toast from "react-hot-toast";
+import Loading from "../../components/common/Loading";
 
 export const EditMerchandise: React.FC = () => {
   const [item, setItem] = useState<Merchandise | null>(null);
@@ -46,13 +47,7 @@ export const EditMerchandise: React.FC = () => {
     }
   };
 
-  if (initialLoading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-900"></div>
-      </div>
-    );
-  }
+  if (initialLoading) return <Loading />;
 
   return (
     <div className="space-y-6">
