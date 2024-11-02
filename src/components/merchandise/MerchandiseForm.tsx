@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Input } from "../common/Input";
 import { Button } from "../common/Button";
-import { Merchandise } from "../../types";
+import { Merchandise, MERCHANDISE_CATEGORIES } from "../../types";
 
 interface MerchandiseFormProps {
   initialData?: Partial<Merchandise>;
@@ -55,14 +55,26 @@ export const MerchandiseForm: React.FC<MerchandiseFormProps> = ({
           required
         />
 
-        <Input
-          label="Category"
-          value={formData.category}
-          onChange={(e) =>
-            setFormData({ ...formData, category: e.target.value })
-          }
-          required
-        />
+        <div>
+          <label className="block text-sm font-medium text-gray-700">
+            Category
+          </label>
+          <select
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+            value={formData.category}
+            onChange={(e) =>
+              setFormData({ ...formData, category: e.target.value })
+            }
+            required
+          >
+            <option value="">Select a category</option>
+            {MERCHANDISE_CATEGORIES.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </div>
 
         <Input
           type="number"

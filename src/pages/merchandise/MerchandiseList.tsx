@@ -82,7 +82,7 @@ export const MerchandiseList: React.FC = () => {
               <h3 className="text-lg font-medium text-gray-900">{item.name}</h3>
               <p className="text-sm text-gray-500 mt-1">{item.description}</p>
               <p className="text-lg font-bold text-primary-600 mt-2">
-                ${item.price.toFixed(2)}
+                Frw {item.price.toFixed(2)}
               </p>
 
               <div className="mt-4 flex items-center justify-between">

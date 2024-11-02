@@ -16,12 +16,24 @@ export interface Track {
   createdAt: string;
 }
 
+export const MERCHANDISE_CATEGORIES = [
+  "T-Shirt",
+  "Cap",
+  "Crop Top",
+  "Hoodie",
+  "Sweatshirt",
+  "Accessory",
+  "Other",
+] as const;
+
+export type MerchandiseCategory = (typeof MERCHANDISE_CATEGORIES)[number];
+
 export interface Merchandise {
   _id: string;
   name: string;
   description: string;
   price: number;
-  category: string;
+  category: MerchandiseCategory;
   images: string[];
   totalStock: number;
   stockCount: number;
