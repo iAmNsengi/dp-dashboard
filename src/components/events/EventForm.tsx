@@ -8,6 +8,7 @@ interface EventFormProps {
   onSubmit: (formData: FormData) => Promise<void>;
   isLoading: boolean;
 }
+type status = "upcoming" | "ongoing" | "completed" | "cancelled";
 
 export const EventForm: React.FC<EventFormProps> = ({
   initialData = {},
@@ -20,9 +21,7 @@ export const EventForm: React.FC<EventFormProps> = ({
     date: initialData.date?.split("T")[0] || "",
     time: initialData.time || "",
     venue: initialData.venue || "",
-    status:
-      initialData.status ||
-      ("upcoming" as "upcoming" | "ongoing" | "completed" | "cancelled"),
+    status: initialData.status || ("" as status),
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -128,7 +127,7 @@ export const EventForm: React.FC<EventFormProps> = ({
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
             value={formData.status}
             onChange={(e) =>
-              setFormData({ ...formData, status: e.target.value })
+              setFormData({ ...formData, status: e.target.value as status })
             }
           >
             <option value="upcoming">Upcoming</option>
