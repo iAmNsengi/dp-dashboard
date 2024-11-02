@@ -38,6 +38,10 @@ export const auth = {
 };
 
 export const tracks = {
+  getOne: async (id: string) => {
+    const response = await api.get(`/tracks/${id}`);
+    return response.data;
+  },
   getAll: async () => {
     const response = await api.get("/tracks");
     return response.data;

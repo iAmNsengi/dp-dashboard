@@ -23,7 +23,6 @@ export const TrackForm: React.FC<TrackFormProps> = ({
   });
 
   const [coverImage, setCoverImage] = useState<File | null>(null);
-  const [audioFile, setAudioFile] = useState<File | null>(null);
   const [coverPreview, setCoverPreview] = useState<string | null>(
     initialData.coverImage || null
   );
@@ -48,13 +47,7 @@ export const TrackForm: React.FC<TrackFormProps> = ({
       submitData.append(key, value);
     });
 
-    if (coverImage) {
-      submitData.append("coverImage", coverImage);
-    }
-
-    if (audioFile) {
-      submitData.append("audioFile", audioFile);
-    }
+    if (coverImage) submitData.append("coverImage", coverImage);
 
     await onSubmit(submitData);
   };
@@ -113,22 +106,6 @@ export const TrackForm: React.FC<TrackFormProps> = ({
               </p>
             </div>
           </div>
-        </div>
-
-        <div className="md:col-span-2">
-          <label className="block text-sm font-medium text-gray-700">
-            Audio File
-          </label>
-          <input
-            type="file"
-            accept="audio/*"
-            onChange={(e) => setAudioFile(e.target.files?.[0] || null)}
-            className="mt-1 w-full"
-            required={!initialData.audioFile}
-          />
-          <p className="text-xs text-gray-500 mt-1">
-            Accepted formats: MP3, WAV. Max size: 10MB
-          </p>
         </div>
       </div>
 
