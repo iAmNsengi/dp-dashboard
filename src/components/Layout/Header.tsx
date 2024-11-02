@@ -2,6 +2,7 @@ import React from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { UserCircleIcon, BellIcon } from "@heroicons/react/24/outline";
 import { useAuth } from "../../contexts/AuthContext";
+import { Image } from "../common/Image";
 
 export const Header: React.FC = () => {
   const { user, logout } = useAuth();
@@ -24,7 +25,7 @@ export const Header: React.FC = () => {
             <Menu as="div" className="ml-3 relative">
               <Menu.Button className="flex items-center">
                 {user?.profileImage ? (
-                  <img
+                  <Image
                     src={user.profileImage}
                     alt={user.username}
                     className="h-8 w-8 rounded-full"

@@ -7,6 +7,7 @@ import {
   CalendarIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
+import { Image } from "../common/Image";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: HomeIcon },
@@ -23,7 +24,7 @@ export const Sidebar: React.FC = () => {
     <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
       <div className="flex flex-col flex-grow pt-5 bg-primary-900 overflow-y-auto">
         <div className="flex items-center flex-shrink-0 px-4">
-          <img className="h-8 w-auto" src="/logo.png" alt="DJ Plus Admin" />
+          <Image className="h-8 w-auto" src="/logo.png" alt="DJ Plus Admin" />
         </div>
         <div className="mt-5 flex-grow flex flex-col">
           <nav className="flex-1 px-2 pb-4 space-y-1">

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Input } from "../common/Input";
 import { Button } from "../common/Button";
 import { Merchandise, MERCHANDISE_CATEGORIES } from "../../types";
+import { Image } from "../common/Image";
 
 interface MerchandiseFormProps {
   initialData?: Partial<Merchandise>;
@@ -129,7 +130,7 @@ export const MerchandiseForm: React.FC<MerchandiseFormProps> = ({
           {initialData.images && initialData.images.length > 0 && (
             <div className="mt-2 grid grid-cols-3 gap-4">
               {initialData.images.map((image, index) => (
-                <img
+                <Image
                   key={index}
                   src={image}
                   alt={`Product ${index + 1}`}

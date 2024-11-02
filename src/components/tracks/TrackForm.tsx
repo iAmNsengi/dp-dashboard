@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Input } from "../common/Input";
 import { Button } from "../common/Button";
 import { Track } from "../../types";
+import { Image } from "../common/Image";
 
 interface TrackFormProps {
   initialData?: Partial<Track>;
@@ -87,7 +88,7 @@ export const TrackForm: React.FC<TrackFormProps> = ({
           </label>
           <div className="mt-1 flex items-center space-x-4">
             {coverPreview && (
-              <img
+              <Image
                 src={coverPreview}
                 alt="Cover preview"
                 className="h-32 w-32 object-cover rounded"
