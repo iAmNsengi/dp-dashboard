@@ -34,6 +34,7 @@ export interface Event {
   description: string;
   date: string;
   time: string;
+  venue: string;
   eventType: string;
   image: string;
   status: "upcoming" | "ongoing" | "completed" | "cancelled";
