@@ -4,6 +4,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { ProtectedRoute } from "./auth/ProtectedRoute";
 import { Login } from "./auth/Login";
 import { Dashboard } from "./pages/Dashboard";
+import { Events } from "./pages/events";
 // import { Tracks } from "./pages/tracks";
 // import { Merchandise } from "./pages/merchandise";
 // import { Events } from "./pages/events";
@@ -23,7 +24,7 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             {/* <Route path="/tracks/*" element={<Tracks />} /> */}
             {/* <Route path="/merchandise/*" element={<Merchandise />} /> */}
-            {/* <Route path="/events/*" element={<Events />} /> */}
+            <Route path="/events/*" element={<Events />} />
             {/* <Route path="/profile" element={<Profile />} /> */}
           </Route>
 

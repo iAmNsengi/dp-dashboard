@@ -34,18 +34,7 @@ export interface Event {
   description: string;
   date: string;
   time: string;
-  venue: {
-    name: string;
-    address: string;
-    city: string;
-    country: string;
-  };
   eventType: string;
-  ticketInfo: {
-    price: number;
-    purchaseLink?: string;
-    available: boolean;
-  };
   image: string;
   status: "upcoming" | "ongoing" | "completed" | "cancelled";
 }
