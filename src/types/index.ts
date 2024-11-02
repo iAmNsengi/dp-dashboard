@@ -23,6 +23,7 @@ export interface Merchandise {
   price: number;
   category: string;
   images: string[];
+  totalStock: number;
   stockCount: number;
   inStock: boolean;
   createdAt: string;
