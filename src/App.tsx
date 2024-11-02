@@ -6,8 +6,8 @@ import { Login } from "./auth/Login";
 import { Dashboard } from "./pages/Dashboard";
 import { Events } from "./pages/events";
 import { Merchandise } from "./pages/merchandise";
-// import { Tracks } from "./pages/tracks";
-// import { Profile } from "./pages/Profile";
+import { Tracks } from "./pages/tracks";
+import { Profile } from "./pages/Profile";
 
 function App() {
   return (
@@ -21,10 +21,10 @@ function App() {
           {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/" element={<Dashboard />} />
-            {/* <Route path="/tracks/*" element={<Tracks />} /> */}
+            <Route path="/tracks/*" element={<Tracks />} />
             <Route path="/merchandise/*" element={<Merchandise />} />
             <Route path="/events/*" element={<Events />} />
-            {/* <Route path="/profile" element={<Profile />} /> */}
+            <Route path="/profile" element={<Profile />} />
           </Route>
 
           {/* Catch all route */}
