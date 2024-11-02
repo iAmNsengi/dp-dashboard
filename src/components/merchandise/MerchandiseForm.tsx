@@ -30,9 +30,7 @@ export const MerchandiseForm: React.FC<MerchandiseFormProps> = ({
 
     // Append basic fields
     Object.entries(formData).forEach(([key, value]) => {
-      if (key !== "sizes") {
-        submitData.append(key, value.toString());
-      }
+      submitData.append(key, value.toString());
     });
 
     // Append images
@@ -41,6 +39,8 @@ export const MerchandiseForm: React.FC<MerchandiseFormProps> = ({
         submitData.append("images", file);
       });
     }
+
+    console.log(Object.fromEntries(submitData.entries()));
 
     await onSubmit(submitData);
   };
