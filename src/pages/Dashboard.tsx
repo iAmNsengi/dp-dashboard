@@ -13,6 +13,8 @@ import { Track, Event, Merchandise } from "../types";
 import { tracks, events, merchandise } from "../services/api";
 import toast from "react-hot-toast";
 import Loading from "../components/common/Loading";
+import { getImageUrl } from "../utils/imageUrl";
+import { Image } from "../components/common/Image";
 
 export const Dashboard: React.FC = () => {
   const [stats, setStats] = useState({
@@ -33,8 +35,6 @@ export const Dashboard: React.FC = () => {
           events.getAll().catch(() => []),
           merchandise.getAll().catch(() => []),
         ]);
-
-        console.log("events data logging...", eventsData.events);
 
         setStats({
           tracks: tracksData?.length || 0,
@@ -146,10 +146,10 @@ const RecentTracks: React.FC<{ tracks: Track[] }> = ({ tracks }) => (
     <div className="space-y-4">
       {tracks.map((track) => (
         <div key={track._id} className="flex items-center">
-          <img
+          <Image
             src={track.coverImage}
             alt={track.title}
-            className="h-12 w-12 rounded object-cover"
+            className="w-20 h-20 object-cover rounded-t-lg"
           />
           <div className="ml-4">
             <p className="font-medium text-gray-900">{track.title}</p>
@@ -169,7 +169,7 @@ const UpcomingEvents: React.FC<{ events: Event[] }> = ({ events }) => (
     <div className="space-y-4">
       {events.map((event) => (
         <div key={event._id} className="flex items-center">
-          <img
+          <Image
             src={event.image}
             alt={event.title}
             className="h-12 w-12 rounded object-cover"

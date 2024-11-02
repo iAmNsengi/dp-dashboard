@@ -7,6 +7,7 @@ import { Merchandise } from "../../types";
 import { merchandise } from "../../services/api";
 import toast from "react-hot-toast";
 import Loading from "../../components/common/Loading";
+import { Image } from "../../components/common/Image";
 
 export const MerchandiseList: React.FC = () => {
   const [items, setItems] = useState<Merchandise[]>([]);
@@ -67,7 +68,7 @@ export const MerchandiseList: React.FC = () => {
         {items.map((item) => (
           <Card key={item._id} className="relative">
             <div className="aspect-w-3 aspect-h-2">
-              <img
+              <Image
                 src={item.images[0]}
                 alt={item.name}
                 className="w-full h-48 object-cover rounded-t-lg"

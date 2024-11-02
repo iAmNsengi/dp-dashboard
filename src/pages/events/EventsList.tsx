@@ -7,6 +7,7 @@ import { Event } from "../../types";
 import { events } from "../../services/api";
 import toast from "react-hot-toast";
 import Loading from "../../components/common/Loading";
+import { Image } from "../../components/common/Image";
 
 export const EventsList: React.FC = () => {
   const [eventsList, setEventsList] = useState<Event[]>([]);
@@ -56,7 +57,7 @@ export const EventsList: React.FC = () => {
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {eventsList?.events.map((event: Event) => (
           <Card key={event._id} className="relative">
-            <img
+            <Image
               src={event.image}
               alt={event.title}
               className="w-full h-48 object-cover rounded-t-lg"
