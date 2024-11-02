@@ -7,7 +7,6 @@ import { Dashboard } from "./pages/Dashboard";
 import { Events } from "./pages/events";
 // import { Tracks } from "./pages/tracks";
 // import { Merchandise } from "./pages/merchandise";
-// import { Events } from "./pages/events";
 // import { Profile } from "./pages/Profile";
 
 function App() {

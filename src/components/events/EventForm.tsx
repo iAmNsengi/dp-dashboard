@@ -1,4 +1,3 @@
-// src/components/events/EventForm.tsx
 import React, { useState } from "react";
 import { Input } from "../common/Input";
 import { Button } from "../common/Button";
@@ -21,7 +20,6 @@ export const EventForm: React.FC<EventFormProps> = ({
     date: initialData.date?.split("T")[0] || "",
     time: initialData.time || "",
     venue: initialData.venue || "",
-    eventType: initialData.eventType || "",
     status:
       initialData.status ||
       ("upcoming" as "upcoming" | "ongoing" | "completed" | "cancelled"),
@@ -31,19 +29,18 @@ export const EventForm: React.FC<EventFormProps> = ({
     e.preventDefault();
     const submitData = new FormData();
 
-    // Append basic fields
+    // Append all fields
     Object.entries(formData).forEach(([key, value]) => {
-      if (key !== "venue" && key !== "ticketInfo") {
-        submitData.append(key, value.toString());
-      }
+      submitData.append(key, value.toString());
     });
 
     // Append image if it exists
     const imageInput =
       document.querySelector<HTMLInputElement>('input[type="file"]');
-    if (imageInput?.files?.length) {
+    if (imageInput?.files?.length)
       submitData.append("image", imageInput.files[0]);
-    }
+
+    console.log(Object.fromEntries(submitData.entries()));
 
     await onSubmit(submitData);
   };
@@ -55,15 +52,6 @@ export const EventForm: React.FC<EventFormProps> = ({
           label="Event Title"
           value={formData.title}
           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-          required
-        />
-
-        <Input
-          label="Event Type"
-          value={formData.eventType}
-          onChange={(e) =>
-            setFormData({ ...formData, eventType: e.target.value })
-          }
           required
         />
 
