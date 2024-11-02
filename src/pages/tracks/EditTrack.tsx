@@ -6,6 +6,7 @@ import { TrackForm } from "../../components/tracks/TrackForm";
 import { tracks } from "../../services/api";
 import { Track } from "../../types";
 import toast from "react-hot-toast";
+import Loading from "../../components/common/Loading";
 
 export const EditTrack: React.FC = () => {
   const [track, setTrack] = useState<Track | null>(null);
@@ -51,11 +52,7 @@ export const EditTrack: React.FC = () => {
   };
 
   if (initialLoading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-900"></div>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (

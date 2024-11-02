@@ -13,6 +13,7 @@ import { Card } from "../../components/common/Card";
 import { Track } from "../../types";
 import { tracks } from "../../services/api";
 import toast from "react-hot-toast";
+import Loading from "../../components/common/Loading";
 
 export const TracksList: React.FC = () => {
   const [tracksList, setTracksList] = useState<Track[]>([]);
@@ -75,13 +76,7 @@ export const TracksList: React.FC = () => {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-900"></div>
-      </div>
-    );
-  }
+  if (loading) return <Loading />;
 
   return (
     <div className="space-y-6">
