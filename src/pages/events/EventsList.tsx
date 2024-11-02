@@ -73,9 +73,7 @@ export const EventsList: React.FC = () => {
               <p className="text-sm text-gray-500 mt-1">
                 {new Date(event.date).toLocaleDateString()} at {event.time}
               </p>
-              <p className="text-sm text-gray-500 mt-1">
-                {event.venue.name}, {event.venue.city}
-              </p>
+              <p className="text-sm text-gray-500 mt-1">{event.venue}</p>
               <div className="mt-4 flex justify-end space-x-2">
                 <Link to={`/events/edit/${event._id}`}>
                   <Button variant="secondary" className="p-2">

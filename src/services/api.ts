@@ -28,6 +28,13 @@ export const auth = {
     const response = await api.get("/auth/me");
     return response.data;
   },
+
+  updateProfile: async (formData: FormData) => {
+    const response = await api.patch("/auth/profile", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    return response.data;
+  },
 };
 
 export const tracks = {
