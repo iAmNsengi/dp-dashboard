@@ -59,7 +59,7 @@ export const EventsList: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {eventsList?.events.map((event) => (
+        {eventsList?.events.map((event: Event) => (
           <Card key={event._id} className="relative">
             <img
               src={event.image}
