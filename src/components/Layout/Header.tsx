@@ -14,7 +14,7 @@ export const Header: React.FC = () => {
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
               <h1 className="text-2xl font-bold text-primary-900">
-                DJ Plus Admin
+                Deejay Pius Admin
               </h1>
             </div>
           </div>
