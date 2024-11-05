@@ -10,7 +10,7 @@ import Loading from "../../components/common/Loading";
 import { Image } from "../../components/common/Image";
 
 export const EventsList: React.FC = () => {
-  const [eventsList, setEventsList] = useState<Event[]>([]);
+  const [eventsList, setEventsList] = useState<unknown>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export const EventsList: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {eventsList?.events.map((event: Event) => (
+        {(eventsList as { events: Event[] })?.events.map((event: Event) => (
           <Card key={event._id} className="relative">
             <Image
               src={event.image}

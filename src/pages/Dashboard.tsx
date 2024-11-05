@@ -13,7 +13,6 @@ import { Track, Event, Merchandise } from "../types";
 import { tracks, events, merchandise } from "../services/api";
 import toast from "react-hot-toast";
 import Loading from "../components/common/Loading";
-import { getImageUrl } from "../utils/imageUrl";
 import { Image } from "../components/common/Image";
 
 export const Dashboard: React.FC = () => {

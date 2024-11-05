@@ -109,6 +109,7 @@ export const EventForm: React.FC<EventFormProps> = ({
           <input
             type="file"
             accept="image/*"
+            required
             className="mt-1 block w-full"
             onChange={(e) => {
               const file = e.target.files?.[0];
@@ -124,12 +125,14 @@ export const EventForm: React.FC<EventFormProps> = ({
             Status
           </label>
           <select
+            required
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
             value={formData.status}
             onChange={(e) =>
               setFormData({ ...formData, status: e.target.value as status })
             }
           >
+            <option disabled selected value="">Choose Status</option>
             <option value="upcoming">Upcoming</option>
             <option value="ongoing">Ongoing</option>
             <option value="completed">Completed</option>
